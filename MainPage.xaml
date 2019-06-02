@@ -1,0 +1,78 @@
+﻿<Page
+    x:Class="StudentHelper.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:StudentHelper"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource AppBarBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel CompositeMode="Inherit" x:Name="SimplePanel">
+
+            <TextBlock x:Name="Tappu1" Style="{StaticResource HeaderTextBlockStyle}">Exam Paper Manager(Samp:2016)</TextBlock>
+
+            <StackPanel Orientation="Horizontal" Background="#00E8A4">
+
+                <PersonPicture></PersonPicture>
+                <AppBarSeparator>
+                </AppBarSeparator>
+                <ComboBox PlaceholderText="SelectSubject" x:Name="A1">
+                    <ComboBox.Items>
+                        <ComboBoxItem Content="Physics"></ComboBoxItem>
+                        <ComboBoxItem Content="Chemistry"></ComboBoxItem>
+                    </ComboBox.Items>
+                </ComboBox>
+                <AppBarSeparator></AppBarSeparator>
+                <ComboBox PlaceholderText="Select Session" x:Name="A2">
+                    <ComboBox.Items>
+                        <ComboBoxItem Content="May/June"></ComboBoxItem>
+                        <ComboBoxItem Content="Oct/November"></ComboBoxItem>
+                    </ComboBox.Items>
+                </ComboBox>
+                <AppBarSeparator></AppBarSeparator>
+                <ComboBox PlaceholderText="Select Paper" x:Name="A3">
+                    <ComboBox.Items>
+                        <ComboBoxItem Content="Paper1"></ComboBoxItem>
+                        <ComboBoxItem Content="Paper2"></ComboBoxItem>
+                        <ComboBoxItem Content="Paper3"></ComboBoxItem>
+                        <ComboBoxItem Content="Paper4"></ComboBoxItem>
+                        <ComboBoxItem Content="Paper5"></ComboBoxItem>
+                        
+                    </ComboBox.Items>
+                </ComboBox>
+              
+                <AppBarSeparator>
+                </AppBarSeparator>
+                <Button x:Name="Downloader" Style="{StaticResource AccentButtonStyle}" Content="Download Selected"></Button>
+                <AppBarSeparator>
+                </AppBarSeparator>
+                <Button x:Name="Reloader">
+                    <Button.Content>
+                        <SymbolIcon Symbol="Refresh"></SymbolIcon>
+                    </Button.Content>
+                </Button>
+                <AppBarSeparator></AppBarSeparator>
+                
+                <TextBlock x:Name="Taper" Foreground="Black"></TextBlock>
+                
+           
+            </StackPanel>
+            
+            <GridView x:Name="Mainpalette" Background="#a4a9b2" Height="900" IsItemClickEnabled="True" SelectionMode="Single" ItemsSource="{Binding}">
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" Height="500" Width="250">
+                            <Image x:Name="Sampu" Height="400" Width="250" Source="{Binding SubImage}"></Image>
+                            <TextBlock Text="{Binding Subject}" FontWeight="Extrabold"></TextBlock>
+                            <TextBlock Text="{Binding Paper}" FontWeight="ExtraBold"></TextBlock>
+                            <TextBlock Text="{Binding Session }" FontWeight="ExtraBold"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+             
+            </GridView>
+        </StackPanel>
+    </Grid>
+</Page>
